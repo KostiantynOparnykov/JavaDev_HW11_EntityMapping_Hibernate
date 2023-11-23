@@ -1,14 +1,27 @@
-import org.example.dao.ClientCrudService;
-import org.example.dao.PlanetCrudService;
+import org.example.dao.client.ClientCrudService;
+import org.example.dao.planet.PlanetCrudService;
+import org.example.dao.ticket.TicketCrudService;
 import org.example.entities.Client;
 import org.example.entities.Planet;
+import org.example.entities.Ticket;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
         ClientCrudService clientCrudService = new ClientCrudService();
         PlanetCrudService planetCrudService = new PlanetCrudService();
+        TicketCrudService ticketCrudService = new TicketCrudService();
+
+        List<Client> allClients = clientCrudService.getAllClients();
+        List<Planet> allPlanets = planetCrudService.getAllPlanets();
+
+        Ticket newTicket = new Ticket();
+        newTicket.setCreatedAt(LocalDateTime.now());
+        newTicket.setClient(allClients.get(5));
+        newTicket.setFromPlanet(allPlanets.get(3));
+        newTicket.setToPlanet(allPlanets.get(4));
 
         Client newClient = new Client();
         Planet newPlanet = new Planet();
@@ -78,5 +91,35 @@ public class Main {
         System.out.println("-->>Created new planet<<--\n-->>>" + newPlanet);
         System.out.println("-->>Deleting planet<<--");
         System.out.println("planetCrudService.deletePlanet(newPlanet) = " + planetCrudService.deletePlanet(newPlanet));
+
+        //CREATE new ticket
+        System.out.println("\n\n-->>Creating new ticket<<--");
+        Long ticketId = ticketCrudService.createTicket(newTicket);
+        System.out.println("ID of new ticket = " + ticketId);
+
+        //READ ticket
+        Ticket ticketById = ticketCrudService.getTicketById(ticketId);
+        System.out.println("-->>Reading ticket<<--\n-->> " + ticketById);
+
+        //READ all tickets
+        List<Ticket> allTickets = ticketCrudService.getAllTickets();
+        System.out.println("-->>All tickets<<--");
+        allTickets.forEach(System.out::println);
+
+        //UPDATE ticket+
+        newTicket.setToPlanet(allPlanets.get(2));
+        System.out.println("-->>Updating ticket<<--");
+        System.out.println("ticketCrudService.updateTicket(newTicket) = "
+                + ticketCrudService.updateTicket(newTicket));
+
+        //DELETE ticket by id+
+        System.out.println("-->>Deleting ticket by id<<--");
+        System.out.println("ticketCrudService.deleteTicketById(ticketId) = "
+                + ticketCrudService.deleteTicketById(ticketId));
+
+        //DELETE ticket
+        ticketCrudService.createTicket(newTicket);
+        System.out.println("-->>Deleting ticket<<--");
+        System.out.println("ticketCrudService.deleteTicket(newTicket) = " + ticketCrudService.deleteTicket(newTicket));
     }
 }

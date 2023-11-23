@@ -1,4 +1,4 @@
-package org.example.dao;
+package org.example.dao.client;
 
 import org.example.entities.Client;
 import org.example.hibernate.HibetnateUtils;
@@ -16,7 +16,8 @@ public class ClientCrudService implements CLientDao{
             Transaction transaction = session.beginTransaction();
             try{
                 client.setId(null);
-                clientId = (Long) session.save(client);
+                session.persist(client);
+                clientId = client.getId();
                 transaction.commit();
 
             }catch (Exception ex){

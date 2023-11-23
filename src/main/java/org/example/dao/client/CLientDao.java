@@ -1,4 +1,4 @@
-package org.example.dao;
+package org.example.dao.client;
 
 import org.example.entities.Client;
 

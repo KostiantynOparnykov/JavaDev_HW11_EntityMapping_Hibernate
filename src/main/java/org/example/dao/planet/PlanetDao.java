@@ -1,4 +1,4 @@
-package org.example.dao;
+package org.example.dao.planet;
 import org.example.entities.Planet;
 
 import java.util.List;

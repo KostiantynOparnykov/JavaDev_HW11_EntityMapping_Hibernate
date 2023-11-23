@@ -1,17 +1,8 @@
-### Moddule 10 homework "ORM Hibernate"
+### Moddule 11 homework "Hibernate Entity mapping. HQL"
 
-This is homework for Module 10 of JavaDeveloper (14) GoIt course
+This is homework for Module 11 of JavaDeveloper (14) GoIt course
 
-This homework contains 3 main goals
-1. Is to create `Gradle` project and properly connect  
-   * Database (in my case `postgres`)
-   * `hibernate`
-   * `flyway`
-2. Create two migration files
-   * `V1__create_db.sql` - creates my db structure
-   * `V2__populate_db.sql` - populates my db
-3. Create entities `Client`, `Planet`, `Ticket`.
-
-   And for `Client` and `Planet` create hibernate mapping and CRUD services
-   * `ClientCrudService`
-   * `PlanetCrudService`
+This homework:
+1. Clone repository from [previous](https://github.com/KostiantynOparnykov/JavaDev_HW10_Hibernate) module. 
+2. Created mapping for our entities.   
+3. Create CRUD service `TicketCrudService` for `Ticket` entity.
