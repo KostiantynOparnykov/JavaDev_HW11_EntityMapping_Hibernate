@@ -4,7 +4,7 @@ import org.example.entities.Client;
 
 import java.util.List;
 
-public interface CLientDao {
+public interface ClientDao {
     Long createClient(Client client);
 
     Client getClientById(Long clientId);

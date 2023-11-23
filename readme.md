@@ -1,4 +1,4 @@
-### Moddule 11 homework "Hibernate Entity mapping. HQL"
+### Module 11 homework "Hibernate Entity mapping. HQL"
 
 This is homework for Module 11 of JavaDeveloper (14) GoIt course
 

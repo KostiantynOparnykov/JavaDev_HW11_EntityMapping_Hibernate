@@ -8,7 +8,7 @@ import org.hibernate.Transaction;
 import java.util.List;
 import java.util.Objects;
 
-public class ClientCrudService implements CLientDao{
+public class ClientCrudService implements ClientDao {
     @Override
     public Long createClient(Client client) {
         Long clientId = null;
